@@ -1,0 +1,36 @@
+<%- include("partials/header") %>
+
+<section class="hero-section rounded-3 p-4 p-md-5 text-white">
+  <div class="row align-items-center">
+    <div class="col-lg-7">
+      <p class="text-uppercase small fw-semibold mb-2">Udupi and Mangalore parking system</p>
+      <h1 class="display-5 fw-bold">Smart Parking Slot Management System</h1>
+      <p class="lead mb-4">Register vehicles, book slots, generate tickets, verify entry, exit, pay fees, and release slots automatically.</p>
+      <a href="/signup" class="btn btn-warning btn-lg me-2">Create Customer Account</a>
+      <a href="/admin/login" class="btn btn-outline-light btn-lg">Admin Login</a>
+    </div>
+  </div>
+</section>
+
+<section class="row g-3 mt-4">
+  <div class="col-md-4">
+    <div class="feature-card">
+      <h5>Simple Booking</h5>
+      <p>Customers choose a vehicle, location, and available slot before receiving a booking ticket.</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="feature-card">
+      <h5>Admin Verification</h5>
+      <p>Each location admin verifies ticket numbers and approves parking entry.</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="feature-card">
+      <h5>Auto Slot Release</h5>
+      <p>After exit and payment, the occupied slot becomes available again.</p>
+    </div>
+  </div>
+</section>
+
+<%- include("partials/footer") %>

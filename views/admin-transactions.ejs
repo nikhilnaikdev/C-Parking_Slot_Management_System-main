@@ -1,0 +1,43 @@
+<%- include("partials/header") %>
+
+<div class="row g-4">
+  <div class="col-lg-3"><%- include("partials/admin-sidebar") %></div>
+  <div class="col-lg-9">
+    <div class="content-panel">
+      <h2 class="mb-3">Transactions</h2>
+      <div class="table-responsive">
+        <table class="table table-striped align-middle">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Customer</th>
+              <th>Ticket</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th>Method</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (transactions.length === 0) { %>
+              <tr><td colspan="7" class="text-center">No transactions found.</td></tr>
+            <% } %>
+            <% transactions.forEach(transaction => { %>
+              <tr>
+                <td><%= transaction.transaction_id %></td>
+                <td><%= transaction.full_name %></td>
+                <td><%= transaction.ticket_number %></td>
+                <td>Rs. <%= transaction.amount %></td>
+                <td><%= transaction.payment_status %></td>
+                <td><%= transaction.payment_method %></td>
+                <td><%= new Date(transaction.created_at).toLocaleString() %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer") %>

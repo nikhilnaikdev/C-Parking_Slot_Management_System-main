@@ -1,0 +1,16 @@
+<%- include("partials/header") %>
+
+<div class="ticket mx-auto">
+  <p class="ticket-label">Parking Booking Ticket</p>
+  <h2><%= booking.ticket_number %></h2>
+  <hr>
+  <p><strong>Customer:</strong> <%= booking.full_name %></p>
+  <p><strong>Vehicle Number:</strong> <%= booking.vehicle_reg_no %></p>
+  <p><strong>Parking Location:</strong> <%= booking.area_name %></p>
+  <p><strong>Slot ID:</strong> <%= booking.parking_slot_id %></p>
+  <p><strong>Booking Time:</strong> <%= new Date(booking.booking_time).toLocaleString() %></p>
+  <p><strong>Entry Status:</strong> <%= booking.entry_status %></p>
+  <a href="/booking/history" class="btn btn-primary w-100 mt-2">View Booking History</a>
+</div>
+
+<%- include("partials/footer") %>

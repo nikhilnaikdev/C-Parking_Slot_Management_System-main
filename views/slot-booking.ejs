@@ -1,0 +1,58 @@
+<%- include("partials/header") %>
+
+<div class="row g-4">
+  <div class="col-lg-3"><%- include("partials/customer-sidebar") %></div>
+  <div class="col-lg-9">
+    <div class="content-panel">
+      <div class="panel-heading">
+        <span class="eyebrow">Reservation</span>
+        <h2>Book Parking Slot</h2>
+      </div>
+
+      <form action="/parking/book" method="GET" class="row g-3 mb-4">
+        <div class="col-md-9">
+          <label class="form-label">Parking Location</label>
+          <select name="area" class="form-select" required>
+            <option value="">Select Location</option>
+            <% areas.forEach(area => { %>
+              <option value="<%= area.area_name %>" <%= selectedArea === area.area_name ? "selected" : "" %>><%= area.area_name %></option>
+            <% }) %>
+          </select>
+        </div>
+        <div class="col-md-3 d-flex align-items-end">
+          <button class="btn btn-outline-primary w-100">Show Slots</button>
+        </div>
+      </form>
+
+      <form action="/parking/book" method="POST" class="row g-3 form-block">
+        <div class="col-md-6">
+          <label class="form-label">Vehicle</label>
+          <select name="vehicle_reg_no" class="form-select" required>
+            <option value="">Select Vehicle</option>
+            <% vehicles.forEach(vehicle => { %>
+              <option value="<%= vehicle.vehicle_reg_no %>"><%= vehicle.vehicle_reg_no %> - <%= vehicle.vehicle_type %></option>
+            <% }) %>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Available Slot</label>
+          <select name="parking_slot_id" class="form-select" required>
+            <option value="">Select Slot</option>
+            <% slots.forEach(slot => { %>
+              <option value="<%= slot.parking_slot_id %>">Slot <%= slot.parking_slot_id %> - <%= slot.area_name %></option>
+            <% }) %>
+          </select>
+        </div>
+        <div class="col-12">
+          <% if (vehicles.length === 0) { %>
+            <a href="/vehicle/add" class="btn btn-warning">Add Vehicle First</a>
+          <% } else { %>
+            <button class="btn btn-primary">Confirm Booking</button>
+          <% } %>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer") %>

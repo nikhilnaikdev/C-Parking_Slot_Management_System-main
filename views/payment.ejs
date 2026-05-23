@@ -1,0 +1,38 @@
+<%- include("partials/header") %>
+
+<div class="row justify-content-center">
+  <div class="col-lg-7">
+    <div class="content-panel">
+      <p class="ticket-label">Exit Ticket</p>
+      <h2 class="mb-3"><%= payment.ticket_number %></h2>
+      <div class="alert alert-warning">
+        Please download the checkout PDF bill before completing payment.
+        <a href="/booking/exit-ticket/pdf?id=<%= payment.booking_id %>" class="alert-link">Download PDF Bill</a>
+      </div>
+      <div class="row g-3 mb-4 detail-grid">
+        <div class="col-md-6"><strong>Location:</strong><br><%= payment.area_name %></div>
+        <div class="col-md-6"><strong>Vehicle:</strong><br><%= payment.vehicle_reg_no %></div>
+        <div class="col-md-6"><strong>Entry Time:</strong><br><%= new Date(payment.in_time).toLocaleString() %></div>
+        <div class="col-md-6"><strong>Exit Time:</strong><br><%= new Date(payment.exit_time).toLocaleString() %></div>
+        <div class="col-md-6"><strong>Duration:</strong><br><%= payment.duration %></div>
+        <div class="col-md-6"><strong>Total Amount:</strong><br>Rs. <%= payment.total_amount %></div>
+      </div>
+
+      <form action="/payment" method="POST">
+        <input type="hidden" name="booking_id" value="<%= payment.booking_id %>">
+        <div class="mb-3">
+          <label class="form-label">Payment Method</label>
+          <select name="payment_method" class="form-select" required>
+            <option value="">Select Method</option>
+            <option value="Cash">Cash</option>
+            <option value="UPI">UPI</option>
+            <option value="Card">Card</option>
+          </select>
+        </div>
+        <button class="btn btn-success w-100">Pay Now</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,58 @@
+<%- include("partials/header") %>
+
+<div class="row g-4">
+  <div class="col-lg-3"><%- include("partials/customer-sidebar") %></div>
+  <div class="col-lg-9">
+    <div class="content-panel">
+      <h2 class="mb-2">Booking History</h2>
+      <p class="text-muted">
+        Entry and checkout are handled by the parking admin at the gate.
+        After admin checkout, the bill and PDF download button will appear here.
+      </p>
+      <div class="table-responsive">
+        <table class="table table-striped align-middle">
+          <thead>
+            <tr>
+              <th>Ticket</th>
+              <th>Vehicle</th>
+              <th>Location</th>
+              <th>Slot</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (bookings.length === 0) { %>
+              <tr><td colspan="6" class="text-center">No bookings yet.</td></tr>
+            <% } %>
+            <% bookings.forEach(booking => { %>
+              <tr>
+                <td><%= booking.ticket_number %></td>
+                <td><%= booking.vehicle_reg_no %></td>
+                <td><%= booking.area_name %></td>
+                <td><%= booking.parking_slot_id %></td>
+                <td><span class="badge text-bg-info"><%= booking.booking_status %></span></td>
+                <td>
+                  <% if (booking.booking_status === "booked") { %>
+                    <a href="/booking/ticket?id=<%= booking.booking_id %>" class="btn btn-sm btn-outline-primary">Ticket</a>
+                    <span class="badge text-bg-warning ms-1">Waiting for Admin Entry</span>
+                  <% } else if (booking.booking_status === "entered") { %>
+                    <span class="badge text-bg-secondary">Parked - admin will checkout at exit gate</span>
+                  <% } else if (booking.booking_status === "exited") { %>
+                    <a href="/booking/exit-ticket?id=<%= booking.booking_id %>" class="btn btn-sm btn-outline-primary">View Bill</a>
+                    <a href="/booking/exit-ticket/pdf?id=<%= booking.booking_id %>" class="btn btn-sm btn-outline-dark">Download PDF</a>
+                    <a href="/payment?booking_id=<%= booking.booking_id %>" class="btn btn-sm btn-success">Pay</a>
+                  <% } else { %>
+                    <a href="/booking/receipts" class="btn btn-sm btn-outline-secondary">View Receipt</a>
+                  <% } %>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer") %>

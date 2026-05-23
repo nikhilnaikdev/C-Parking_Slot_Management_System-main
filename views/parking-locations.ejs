@@ -1,0 +1,32 @@
+<%- include("partials/header") %>
+
+<div class="row g-4">
+  <div class="col-lg-3"><%- include("partials/customer-sidebar") %></div>
+  <div class="col-lg-9">
+    <div class="page-titlebar">
+      <span class="eyebrow">Choose area</span>
+      <h2>Parking Locations</h2>
+    </div>
+    <div class="row g-3">
+      <% locations.forEach(location => { %>
+        <div class="col-md-6">
+          <div class="location-card">
+            <h5><%= location.area_name %></h5>
+            <div class="row text-center my-3">
+              <div class="col"><strong><%= location.total_slots %></strong><span>Total</span></div>
+              <div class="col"><strong><%= location.available_slots || 0 %></strong><span>Available</span></div>
+              <div class="col"><strong><%= location.occupied_slots || 0 %></strong><span>Occupied</span></div>
+            </div>
+            <% if ((location.available_slots || 0) > 0) { %>
+              <a href="/parking/book?area=<%= encodeURIComponent(location.area_name) %>" class="btn btn-primary w-100">Book Here</a>
+            <% } else { %>
+              <button class="btn btn-secondary w-100" disabled>Parking Full</button>
+            <% } %>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer") %>

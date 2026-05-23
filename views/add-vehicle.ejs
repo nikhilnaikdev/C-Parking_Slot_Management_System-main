@@ -1,0 +1,41 @@
+<%- include("partials/header") %>
+
+<div class="row g-4">
+  <div class="col-lg-3"><%- include("partials/customer-sidebar") %></div>
+  <div class="col-lg-9">
+    <div class="content-panel">
+      <div class="panel-heading">
+        <span class="eyebrow">Vehicle profile</span>
+        <h2>Add Vehicle</h2>
+      </div>
+      <form action="/vehicle/add" method="POST" class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Registration Number</label>
+          <input type="text" name="vehicle_reg_no" class="form-control" placeholder="KA20AB1234" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Vehicle Make</label>
+          <input type="text" name="vehicle_make" class="form-control" placeholder="Honda" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Vehicle Model</label>
+          <input type="text" name="vehicle_model" class="form-control" placeholder="City" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Vehicle Type</label>
+          <select name="vehicle_type" class="form-select" required>
+            <option value="">Select Type</option>
+            <option value="Bike">Bike</option>
+            <option value="Car">Car</option>
+            <option value="Truck">Truck</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary">Save Vehicle</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer") %>

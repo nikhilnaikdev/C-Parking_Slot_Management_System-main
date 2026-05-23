@@ -1,0 +1,56 @@
+<%- include("partials/header") %>
+
+<div class="row g-4">
+  <div class="col-lg-3"><%- include("partials/admin-sidebar") %></div>
+  <div class="col-lg-9">
+    <div class="content-panel">
+      <h2 class="mb-3">Bookings</h2>
+      <div class="table-responsive">
+        <table class="table table-striped align-middle">
+          <thead>
+            <tr>
+              <th>Ticket</th>
+              <th>Customer</th>
+              <th>Vehicle</th>
+              <th>Slot</th>
+              <th>Entry</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (bookings.length === 0) { %>
+              <tr><td colspan="7" class="text-center">No bookings found.</td></tr>
+            <% } %>
+            <% bookings.forEach(booking => { %>
+              <tr>
+                <td><%= booking.ticket_number %></td>
+                <td><%= booking.full_name %></td>
+                <td><%= booking.vehicle_reg_no %></td>
+                <td><%= booking.parking_slot_id %></td>
+                <td><%= booking.entry_status %></td>
+                <td><%= booking.booking_status %></td>
+                <td>
+                  <% if (booking.booking_status === "booked") { %>
+                    <span class="badge text-bg-warning">Verify at entry gate</span>
+                  <% } else if (booking.booking_status === "entered") { %>
+                    <form action="/parking/exit" method="POST" class="d-inline">
+                      <input type="hidden" name="ticket_number" value="<%= booking.ticket_number %>">
+                      <button class="btn btn-sm btn-warning">Exit & Generate Bill</button>
+                    </form>
+                  <% } else if (booking.booking_status === "exited") { %>
+                    <a href="/admin/bills" class="btn btn-sm btn-outline-primary">View Bill</a>
+                  <% } else { %>
+                    <span class="badge text-bg-success">Completed</span>
+                  <% } %>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer") %>

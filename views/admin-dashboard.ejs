@@ -1,0 +1,33 @@
+<%- include("partials/header") %>
+
+<div class="row g-4">
+  <div class="col-lg-3"><%- include("partials/admin-sidebar") %></div>
+  <div class="col-lg-9">
+    <div class="page-titlebar">
+      <span class="eyebrow">Admin dashboard</span>
+      <h2>Admin Dashboard</h2>
+      <p><%= admin.parking_location %></p>
+    </div>
+    <div class="row g-3">
+      <div class="col-md-3"><div class="stat-card"><span>Total Slots</span><strong><%= stats.total %></strong></div></div>
+      <div class="col-md-3"><div class="stat-card"><span>Available</span><strong><%= stats.available %></strong></div></div>
+      <div class="col-md-3"><div class="stat-card"><span>Occupied</span><strong><%= stats.occupied %></strong></div></div>
+      <div class="col-md-3"><div class="stat-card"><span>Bookings</span><strong><%= stats.bookings %></strong></div></div>
+    </div>
+    <div class="content-panel mt-4">
+      <div class="panel-heading">
+        <span class="eyebrow">Gate controls</span>
+        <h5>Admin Actions</h5>
+      </div>
+      <div class="action-strip">
+        <a href="/parking/entry" class="btn btn-primary">Verify Entry</a>
+        <a href="/parking/exit" class="btn btn-warning">Verify Exit</a>
+        <a href="/admin/bookings" class="btn btn-outline-primary">View Bookings</a>
+        <a href="/admin/bills" class="btn btn-outline-primary">Checkout Bills</a>
+        <a href="/admin/transactions" class="btn btn-outline-primary">View Transactions</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,25 @@
+<%- include("partials/header") %>
+
+<div class="row g-4">
+  <div class="col-lg-3"><%- include("partials/admin-sidebar") %></div>
+  <div class="col-lg-9">
+    <div class="content-panel">
+      <div class="panel-heading">
+        <span class="eyebrow">Exit gate</span>
+        <h2>Verify Exit and Generate Bill</h2>
+      </div>
+      <p class="text-muted">
+        Enter the customer's ticket number at the exit gate. The bill is generated using the original entry time and the current checkout time.
+      </p>
+      <form action="/parking/exit" method="POST">
+        <div class="mb-3">
+          <label class="form-label">Ticket Number</label>
+          <input type="text" name="ticket_number" class="form-control" placeholder="TKT-..." required>
+        </div>
+        <button class="btn btn-warning">Approve Exit and Generate Bill</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer") %>

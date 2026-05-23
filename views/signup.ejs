@@ -1,0 +1,40 @@
+<%- include("partials/header") %>
+
+<div class="auth-layout auth-layout-wide">
+  <div class="auth-aside">
+    <span class="eyebrow">New customer</span>
+    <h1>Set up your parking profile once.</h1>
+    <p>Add your account details now, then register vehicles and book slots without repeating the basics.</p>
+  </div>
+
+  <div class="auth-card">
+    <span class="eyebrow">Account setup</span>
+    <h2>Customer Signup</h2>
+    <form action="/signup" method="POST">
+      <div class="mb-3">
+        <label class="form-label">Full Name</label>
+        <input type="text" name="full_name" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Address</label>
+        <textarea name="address" class="form-control" rows="2" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Mobile Number</label>
+        <input type="text" name="mobile_no" class="form-control" required>
+      </div>
+      <button class="btn btn-primary w-100">Sign Up</button>
+    </form>
+    <p class="auth-switch">Already registered? <a href="/login">Login</a></p>
+  </div>
+</div>
+
+<%- include("partials/footer") %>

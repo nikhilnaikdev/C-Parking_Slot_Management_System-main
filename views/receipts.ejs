@@ -1,0 +1,43 @@
+<%- include("partials/header") %>
+
+<div class="row g-4">
+  <div class="col-lg-3"><%- include("partials/customer-sidebar") %></div>
+  <div class="col-lg-9">
+    <div class="content-panel">
+      <h2 class="mb-3">Receipts</h2>
+      <div class="table-responsive">
+        <table class="table table-striped align-middle">
+          <thead>
+            <tr>
+              <th>Receipt</th>
+              <th>Ticket</th>
+              <th>Location</th>
+              <th>Duration</th>
+              <th>Amount</th>
+              <th>Payment</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (receipts.length === 0) { %>
+              <tr><td colspan="7" class="text-center">No receipts yet.</td></tr>
+            <% } %>
+            <% receipts.forEach(receipt => { %>
+              <tr>
+                <td>#<%= receipt.receipt_id %></td>
+                <td><%= receipt.ticket_number %></td>
+                <td><%= receipt.area_name %></td>
+                <td><%= receipt.duration || "-" %></td>
+                <td>Rs. <%= receipt.total_amount %></td>
+                <td><%= receipt.payment_status || "Pending" %></td>
+                <td><%= receipt.receipt_type %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer") %>

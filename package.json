@@ -1,0 +1,33 @@
+{
+  "name": "smart-parking-slot-management-system",
+  "version": "1.0.0",
+  "description": "Smart Parking Slot Management System using Node.js, Express, MySQL, EJS and MVC architecture.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "setup-db": "node database/setup.js",
+    "check-db": "node database/test-connection.js",
+    "reset-admins": "node database/reset-admins.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mysql",
+    "ejs",
+    "parking-management"
+  ],
+  "author": "Smart Parking Project",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "ejs": "^3.1.10",
+    "express": "^4.22.2",
+    "express-session": "^1.18.1",
+    "mysql2": "^3.22.3",
+    "nodemon": "^3.1.9"
+  }
+}

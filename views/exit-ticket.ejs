@@ -1,0 +1,30 @@
+<%- include("partials/header") %>
+
+<div class="ticket mx-auto">
+  <p class="ticket-label">Checkout Bill</p>
+  <h2><%= ticket.ticket_number %></h2>
+  <hr>
+  <p><strong>Customer:</strong> <%= ticket.full_name %></p>
+  <p><strong>Vehicle Number:</strong> <%= ticket.vehicle_reg_no %></p>
+  <p><strong>Vehicle Type:</strong> <%= ticket.vehicle_type %></p>
+  <p><strong>Parking Location:</strong> <%= ticket.area_name %></p>
+  <p><strong>Slot ID:</strong> <%= ticket.parking_slot_id %></p>
+  <p><strong>Entry Time:</strong> <%= new Date(ticket.in_time).toLocaleString() %></p>
+  <p><strong>Checkout Time:</strong> <%= new Date(ticket.exit_time).toLocaleString() %></p>
+  <p><strong>Billed Hours:</strong> <%= ticket.billed_hours %> hour(s)</p>
+  <p><strong>Rate Per Hour:</strong> Rs. <%= ticket.rate_per_hour %></p>
+  <p><strong>Calculation:</strong> <%= ticket.billed_hours %> x <%= ticket.rate_per_hour %> = Rs. <%= ticket.calculated_amount %></p>
+  <p><strong>Total Amount:</strong> Rs. <%= ticket.total_amount %></p>
+  <p><strong>Payment Status:</strong> <%= ticket.payment_status || "Pending" %></p>
+  <div class="alert alert-info mt-3">
+    Download this PDF bill and keep it ready before paying the parking fee.
+  </div>
+  <a href="/booking/exit-ticket/pdf?id=<%= ticket.booking_id %>" class="btn btn-outline-primary w-100 mt-2">Download PDF Bill</a>
+  <% if (ticket.booking_status === "exited") { %>
+    <a href="/payment?booking_id=<%= ticket.booking_id %>" class="btn btn-success w-100 mt-2">Continue Payment</a>
+  <% } else { %>
+    <a href="/booking/receipts" class="btn btn-primary w-100 mt-2">View Receipt</a>
+  <% } %>
+</div>
+
+<%- include("partials/footer") %>

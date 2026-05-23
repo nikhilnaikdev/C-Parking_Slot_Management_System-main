@@ -1,0 +1,52 @@
+<%- include("partials/header") %>
+
+<div class="row g-4">
+  <div class="col-lg-3"><%- include("partials/admin-sidebar") %></div>
+  <div class="col-lg-9">
+    <div class="content-panel">
+      <h2 class="mb-2">Checkout Bills</h2>
+      <p class="text-muted">Bills generated when customers checkout from <%= admin.parking_location %>.</p>
+      <div class="table-responsive">
+        <table class="table table-striped align-middle">
+          <thead>
+            <tr>
+              <th>Bill</th>
+              <th>Ticket</th>
+              <th>Customer</th>
+              <th>Vehicle</th>
+              <th>Duration</th>
+              <th>Amount</th>
+              <th>Payment</th>
+              <th>Paid At</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (bills.length === 0) { %>
+              <tr><td colspan="8" class="text-center">No checkout bills yet.</td></tr>
+            <% } %>
+            <% bills.forEach(bill => { %>
+              <tr>
+                <td>#<%= bill.receipt_id %></td>
+                <td><%= bill.ticket_number %></td>
+                <td><%= bill.full_name %></td>
+                <td><%= bill.vehicle_reg_no %></td>
+                <td><%= bill.duration %></td>
+                <td>Rs. <%= bill.total_amount %></td>
+                <td>
+                  <% if (bill.payment_status === "Paid") { %>
+                    <span class="badge text-bg-success">Paid by <%= bill.payment_method %></span>
+                  <% } else { %>
+                    <span class="badge text-bg-warning">Pending</span>
+                  <% } %>
+                </td>
+                <td><%= bill.paid_at ? new Date(bill.paid_at).toLocaleString() : "-" %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer") %>

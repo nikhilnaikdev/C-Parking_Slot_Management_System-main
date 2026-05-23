@@ -1,0 +1,28 @@
+<%- include("partials/header") %>
+
+<div class="auth-layout">
+  <div class="auth-aside admin-aside">
+    <span class="eyebrow">Admin gate</span>
+    <h1>Verify movement without clutter.</h1>
+    <p>Access entry checks, exit billing, bookings, and transaction records for your assigned parking location.</p>
+  </div>
+
+  <div class="auth-card">
+    <span class="eyebrow">Staff access</span>
+    <h2>Admin Login</h2>
+    <form action="/admin/login" method="POST">
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" required>
+      </div>
+      <button class="btn btn-dark w-100">Login</button>
+    </form>
+    <p class="auth-switch small text-muted">Default password: password</p>
+  </div>
+</div>
+
+<%- include("partials/footer") %>
