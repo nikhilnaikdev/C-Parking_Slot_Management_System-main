@@ -2,6 +2,10 @@
 
 A smart parking slot management web application built with Node.js, Express, MySQL, and EJS. It helps users book parking slots, manage vehicles, make payments, and view booking history, while admins can manage parking locations, bookings, bills, and transactions.
 
+## Live Demo
+
+https://parking-slot-management-system.onrender.com
+
 ## Features
 
 - User registration and login
