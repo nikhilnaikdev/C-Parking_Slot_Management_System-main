@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events | EventPro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="/"><span class="brand-mark">E</span> EventPro</a>
+      <button class="btn btn-ghost menu-btn" data-menu>Menu</button>
+      <div class="nav-links" data-nav-links>
+        <a href="/">Home</a>
+        <a class="active" href="/events">Events</a>
+        <a href="/contact">Contact</a>
+        <a href="/admin">Admin</a>
+      </div>
+      <div class="nav-actions" data-auth-area></div>
+    </div>
+  </nav>
+  <main class="page section">
+    <div class="section-head">
+      <div class="section-title">
+        <p class="eyebrow">Browse</p>
+        <h1>All Events</h1>
+        <p>Search and filter startup-ready events from the EventPro MySQL catalog.</p>
+      </div>
+    </div>
+    <form class="filters" data-filter-form>
+      <input class="input" name="search" placeholder="Search event, city, venue">
+      <select class="input" name="category">
+        <option value="all">All categories</option>
+        <option value="Business">Business</option>
+        <option value="Music">Music</option>
+        <option value="Workshop">Workshop</option>
+        <option value="Technology">Technology</option>
+      </select>
+      <button class="btn btn-primary" type="submit">Apply</button>
+    </form>
+    <section class="grid" data-events-grid style="margin-top: 24px;"></section>
+  </main>
+  <footer class="footer"><div class="page footer-inner"><span>EventPro © 2026</span><span>Instagram · LinkedIn · X</span></div></footer>
+  <script src="/js/app.js"></script>
+  <script src="/js/events.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | EventPro</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav class="navbar"><div class="nav-inner"><a class="brand" href="/"><span class="brand-mark">E</span> EventPro</a><div class="nav-actions" data-auth-area></div></div></nav>
+  <main class="page auth-shell">
+    <section class="auth-card">
+      <p class="eyebrow">Welcome back</p>
+      <h1>User Login</h1>
+      <form class="form-stack" data-login-form>
+        <input name="email" type="email" placeholder="Email address" required>
+        <input name="password" type="password" placeholder="Password" required>
+        <button class="btn btn-primary" type="submit">Login</button>
+      </form>
+      <p>New here? <a class="price" href="/register">Create an account</a></p>
+      <p>Admin? <a class="price" href="/admin">Go to admin login</a></p>
+    </section>
+  </main>
+  <script src="/js/app.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

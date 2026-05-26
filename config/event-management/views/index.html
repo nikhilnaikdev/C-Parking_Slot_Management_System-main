@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventPro | Premium Event Booking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="/"><span class="brand-mark">E</span> EventPro</a>
+      <button class="btn btn-ghost menu-btn" data-menu>Menu</button>
+      <div class="nav-links" data-nav-links>
+        <a class="active" href="/">Home</a>
+        <a href="/events">Events</a>
+        <a href="/contact">Contact</a>
+        <a href="/admin">Admin</a>
+      </div>
+      <div class="nav-actions" data-auth-area></div>
+    </div>
+  </nav>
+
+  <main class="page">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Premium booking platform</p>
+        <h1>EventPro</h1>
+        <p>Discover, book, and manage standout conferences, concerts, workshops, and private experiences from one polished dashboard.</p>
+        <form class="hero-actions" data-home-search>
+          <input class="input" name="search" placeholder="Search events, venues, or cities">
+          <button class="btn btn-primary" type="submit">Search Events</button>
+          <a class="btn btn-ghost" href="/events">Explore All</a>
+        </form>
+      </div>
+      <div class="hero-media">
+        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80" alt="Luxury event audience">
+        <div class="hero-card">
+          <strong>Live booking confirmations</strong>
+          <span>JWT-secured accounts, real-time seat updates, and admin controls for growing event teams.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div class="section-title">
+          <p class="eyebrow">Upcoming</p>
+          <h2>Featured Events</h2>
+        </div>
+        <a class="btn btn-ghost" href="/events">View All</a>
+      </div>
+      <div class="grid" data-featured-events></div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <p class="eyebrow">Categories</p>
+        <h2>Find your next moment</h2>
+      </div>
+      <div class="category-list">
+        <div class="category" data-category="Business"><h3>Business</h3><p>Summits and networking.</p></div>
+        <div class="category" data-category="Music"><h3>Music</h3><p>Festivals and live shows.</p></div>
+        <div class="category" data-category="Workshop"><h3>Workshop</h3><p>Hands-on learning.</p></div>
+        <div class="category" data-category="Technology"><h3>Technology</h3><p>Demos and tech nights.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="page footer-inner">
+      <span>EventPro © 2026</span>
+      <span>Instagram · LinkedIn · X</span>
+    </div>
+  </footer>
+  <script src="/js/app.js"></script>
+  <script src="/js/home.js"></script>
+</body>
+</html>

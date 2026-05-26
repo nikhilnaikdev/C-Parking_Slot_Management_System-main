@@ -1,0 +1,32 @@
+{
+  "name": "eventpro",
+  "version": "1.0.0",
+  "description": "EventPro is a modern full-stack event booking and management platform built with HTML, CSS, vanilla JavaScript, Node.js, Express, and MySQL.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "setup-db": "node database/setup.js"
+  },
+  "keywords": [
+    "events",
+    "booking",
+    "express",
+    "mysql",
+    "jwt"
+  ],
+  "author": "EventPro",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.22.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
